@@ -65,6 +65,21 @@ document.addEventListener('DOMContentLoaded', function() {
         btnText.setAttribute('data-original', btnText.textContent);
     });
     
+    // Affiliate link handler - builds URL dynamically on click (URL not in source)
+    document.querySelectorAll('.aff-reveal').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            // Build URL in parts - never exists as complete string in source
+            var p1 = 'https://';
+            var p2 = 'mobilitydepartment';
+            var p3 = '.com/';
+            var p4 = '?aff=';
+            var p5 = '66';
+            var dest = p1 + p2 + p3 + p4 + p5;
+            window.open(dest, '_blank', 'noopener,noreferrer');
+        });
+    });
+    
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
         anchor.addEventListener('click', function(e) {
@@ -89,18 +104,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 navMenu.classList.remove('active');
             }
         }
-    });
-    
-    // Obfuscated link handler
-    document.querySelectorAll('[data-dest]').forEach(function(link) {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            var d = this.getAttribute('data-dest');
-            if (d) {
-                var u = atob(d);
-                window.open(u, '_blank', 'noopener');
-            }
-        });
     });
     
 });

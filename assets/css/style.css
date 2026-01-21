@@ -758,3 +758,14 @@ footer {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(190, 0, 129, 0.3);
 }
+
+/* Affiliate Disclosure */
+.affiliate-disclosure {
+    margin-top: 15px;
+    padding-top: 12px;
+    border-top: 1px solid #dee2e6;
+    font-size: 0.8rem;
+    color: #6c757d;
+    text-align: center;
+    font-style: italic;
+}
