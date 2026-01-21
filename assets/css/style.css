@@ -769,3 +769,68 @@ footer {
     text-align: center;
     font-style: italic;
 }
+
+/* Two-Click Affiliate Button System */
+.aff-wrapper {
+    display: inline-block;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.aff-trigger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #BE0081 0%, #8B005F 100%);
+    color: #fff;
+    padding: 16px 32px;
+    border: none;
+    border-radius: 50px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(190, 0, 129, 0.3);
+}
+
+.aff-trigger:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(190, 0, 129, 0.4);
+    background: linear-gradient(135deg, #d4008f 0%, #9c006b 100%);
+}
+
+.aff-final {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%);
+    color: #fff;
+    padding: 16px 32px;
+    border: none;
+    border-radius: 50px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+    text-decoration: none;
+}
+
+.aff-final:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+    background: linear-gradient(135deg, #34ce57 0%, #28a745 100%);
+    color: #fff;
+}
+
+.aff-note {
+    display: block;
+    margin-top: 8px;
+    font-size: 0.75rem;
+    color: #6c757d;
+    font-style: italic;
+}

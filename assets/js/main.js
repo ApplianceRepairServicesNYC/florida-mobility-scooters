@@ -12,91 +12,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Accordion Functionality for Affiliate CTAs
-    const accordionHeaders = document.querySelectorAll('.cta-accordion-header');
-    
-    accordionHeaders.forEach(function(header) {
-        header.addEventListener('click', function() {
-            const content = this.nextElementSibling;
-            const isActive = this.classList.contains('active');
-            
-            // Close all accordions first
-            document.querySelectorAll('.cta-accordion-header').forEach(function(h) {
-                h.classList.remove('active');
-            });
-            document.querySelectorAll('.cta-accordion-content').forEach(function(c) {
-                c.classList.remove('active');
-            });
-            
-            // Toggle current accordion
-            if (!isActive) {
-                this.classList.add('active');
-                content.classList.add('active');
-            }
-        });
-    });
-    
-    // Click-to-Reveal Pricing Buttons
-    const pricingBtns = document.querySelectorAll('.pricing-reveal-btn');
-    
-    pricingBtns.forEach(function(btn) {
-        btn.addEventListener('click', function() {
-            const container = this.closest('.pricing-reveal-container');
-            const content = container.querySelector('.pricing-reveal-content');
-            
-            if (content) {
-                content.classList.toggle('active');
-                
-                // Update button text
-                const btnText = this.querySelector('.btn-text');
-                if (btnText) {
-                    if (content.classList.contains('active')) {
-                        btnText.textContent = 'Hide Options';
-                    } else {
-                        btnText.textContent = btnText.getAttribute('data-original') || 'Check Pricing & Availability';
-                    }
-                }
-            }
-        });
-    });
-    
-    // Store original button text
-    document.querySelectorAll('.pricing-reveal-btn .btn-text').forEach(function(btnText) {
-        btnText.setAttribute('data-original', btnText.textContent);
-    });
-    
-    // Affiliate link handler - builds URL dynamically on click (URL not in source)
-    document.querySelectorAll('.aff-reveal').forEach(function(link) {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            // Build URL in parts - never exists as complete string in source
-            var p1 = 'https://';
-            var p2 = 'mobilitydepartment';
-            var p3 = '.com/';
-            var p4 = '?aff=';
-            var p5 = '66';
-            var dest = p1 + p2 + p3 + p4 + p5;
-            window.open(dest, '_blank', 'noopener,noreferrer');
-        });
-    });
-    
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-        anchor.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            if (href !== '#') {
-                e.preventDefault();
-                const target = document.querySelector(href);
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            }
-        });
-    });
-    
     // Close mobile menu when clicking outside
     document.addEventListener('click', function(e) {
         if (navMenu && navMenu.classList.contains('active')) {
@@ -104,6 +19,35 @@ document.addEventListener('DOMContentLoaded', function() {
                 navMenu.classList.remove('active');
             }
         }
+    });
+    
+    // Two-Click Affiliate System
+    // Step 1: Click button to reveal the link
+    // Step 2: Click revealed link to go to affiliate site
+    
+    document.querySelectorAll('.aff-trigger').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var wrapper = this.closest('.aff-wrapper');
+            var link = wrapper.querySelector('.aff-final');
+            
+            // Hide button, show link
+            this.style.display = 'none';
+            link.style.display = 'inline-block';
+        });
+    });
+    
+    document.querySelectorAll('.aff-final').forEach(function(link) {
+        link.addEventListener('click', function(ev) {
+            ev.preventDefault();
+            // Build the URL only on click
+            var a = 'https://';
+            var b = 'mobility';
+            var c = 'department';
+            var d = '.com/';
+            var q = '?aff=';
+            var f = '66';
+            window.open(a + b + c + d + q + f, '_blank');
+        });
     });
     
 });
