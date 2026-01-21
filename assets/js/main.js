@@ -36,6 +36,35 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
+    // Click-to-Reveal Pricing Buttons
+    const pricingBtns = document.querySelectorAll('.pricing-reveal-btn');
+    
+    pricingBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            const container = this.closest('.pricing-reveal-container');
+            const content = container.querySelector('.pricing-reveal-content');
+            
+            if (content) {
+                content.classList.toggle('active');
+                
+                // Update button text
+                const btnText = this.querySelector('.btn-text');
+                if (btnText) {
+                    if (content.classList.contains('active')) {
+                        btnText.textContent = 'Hide Options';
+                    } else {
+                        btnText.textContent = btnText.getAttribute('data-original') || 'Check Pricing & Availability';
+                    }
+                }
+            }
+        });
+    });
+    
+    // Store original button text
+    document.querySelectorAll('.pricing-reveal-btn .btn-text').forEach(function(btnText) {
+        btnText.setAttribute('data-original', btnText.textContent);
+    });
+    
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
         anchor.addEventListener('click', function(e) {
@@ -60,6 +89,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 navMenu.classList.remove('active');
             }
         }
+    });
+    
+    // Obfuscated link handler
+    document.querySelectorAll('[data-dest]').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            var d = this.getAttribute('data-dest');
+            if (d) {
+                var u = atob(d);
+                window.open(u, '_blank', 'noopener');
+            }
+        });
     });
     
 });

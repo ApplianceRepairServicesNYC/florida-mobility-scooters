@@ -575,4 +575,186 @@ footer {
         grid-template-columns: 1fr;
         text-align: center;
     }
+    
+    .pricing-reveal-btn {
+        padding: 14px 24px;
+        font-size: 0.95rem;
+    }
+}
+
+/* Click-to-Reveal Pricing Buttons */
+.pricing-reveal-container {
+    margin: 25px 0;
+    text-align: center;
+}
+
+.pricing-reveal-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #BE0081 0%, #8B005F 100%);
+    color: #fff;
+    padding: 16px 32px;
+    border: none;
+    border-radius: 50px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(190, 0, 129, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.pricing-reveal-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.pricing-reveal-btn:hover::before {
+    left: 100%;
+}
+
+.pricing-reveal-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(190, 0, 129, 0.4);
+    background: linear-gradient(135deg, #d4008f 0%, #9c006b 100%);
+}
+
+.pricing-reveal-btn:active {
+    transform: translateY(0);
+}
+
+.pricing-reveal-btn .btn-icon {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.pricing-reveal-btn:hover .btn-icon {
+    transform: scale(1.1);
+}
+
+.pricing-reveal-content {
+    display: none;
+    margin-top: 20px;
+    padding: 25px;
+    background: linear-gradient(145deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 16px;
+    border: 1px solid #dee2e6;
+    animation: fadeSlideIn 0.4s ease;
+}
+
+.pricing-reveal-content.active {
+    display: block;
+}
+
+@keyframes fadeSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.pricing-reveal-content p {
+    margin-bottom: 15px;
+    color: #495057;
+    font-size: 0.95rem;
+}
+
+.pricing-link-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.pricing-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 20px;
+    background: #fff;
+    color: #361754;
+    border: 2px solid #361754;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.pricing-link:hover {
+    background: #361754;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(54, 23, 84, 0.2);
+}
+
+.pricing-link .link-arrow {
+    transition: transform 0.3s ease;
+}
+
+.pricing-link:hover .link-arrow {
+    transform: translateX(4px);
+}
+
+/* Inline CTA Button */
+.inline-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: linear-gradient(135deg, #361754 0%, #4a2970 100%);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin: 5px 0;
+}
+
+.inline-cta-btn:hover {
+    background: linear-gradient(135deg, #BE0081 0%, #8B005F 100%);
+    color: #fff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(190, 0, 129, 0.3);
+}
+
+/* Card CTA Button */
+.card-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    margin-top: 15px;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #BE0081 0%, #8B005F 100%);
+    color: #fff;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.card-cta-btn:hover {
+    background: linear-gradient(135deg, #d4008f 0%, #9c006b 100%);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(190, 0, 129, 0.3);
 }
